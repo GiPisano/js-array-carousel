@@ -18,11 +18,14 @@
 }
 
 .carousel-container{
-    height: 400px;
-    width: 800px;
+    height: 500px;
+    width: 1000px;
+    border-radius: 10px;
     overflow: hidden;
+    box-shadow: 4px 4px 8px #000000;
 
     position: relative;
+
 }
 
 .container-slide{
@@ -38,7 +41,7 @@
     display: none;
 }
 
-.slide.active{
+.active{
     display: block;
 }
 

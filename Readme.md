@@ -24,7 +24,3 @@ Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell'immagine 
 Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.
 
 ```
-
-## Svolgimento
-
-- creo una base html contenente :
