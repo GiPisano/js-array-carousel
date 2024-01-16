@@ -19,14 +19,23 @@
 
 .carousel-container{
     height: 450px;
-    width: 1000px;
+    width: 950px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 4px 4px 8px #000000;
     position: relative;
     display: flex;
-    
+}
 
+.carousel-container:hover{
+    box-shadow: 5px 10px 8px 10px #888888;
+    height: 480px;
+    width: 980px;
+    transition: all .6s;
+}
+
+.carousel-container:not(:hover){
+    transition: all .6s;
 }
 
 .container-slide{
@@ -39,7 +48,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-
     display: none;
 }
 
@@ -90,11 +98,13 @@
 .container-thumb-img:hover{
     opacity: 1;
     border: 2px solid orange;
+    transition: all .2s;
 }
 
 .container-thumb-img.active{
     opacity: 1;
     border: 2px solid orange;
+    transition: all .5s;
 }
 
 .thumb-slide{
