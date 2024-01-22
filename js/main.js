@@ -11,6 +11,8 @@ const slides = ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp']
 let currentSlide = 0;
 let intervalNext;
 
+startCarousel();
+
 // genero le slides
 let slidesHtml = "";
 let thumbnailsListHtml = "";
@@ -34,12 +36,12 @@ const allThumbnails = document.querySelectorAll('.container-thumb-img');
 
 // creo un evento per il click della freccia che scorre le slides
 arrowNext.addEventListener('click', function(){
-    clickNext()
+    goToSlide(currentSlide >= allSlides.length - 1 ? 0 : currentSlide + 1)
 })
 
 // creo un evento per il click della freccia che torna indietro
 arrowPrev.addEventListener('click', function(){
-    clickPrev()
+    goToSlide(currentSlide <= 0 ? allSlides.length - 1 : currentSlide - 1)
 })
 
 // creo un evento per il click della Thumbnails
@@ -47,33 +49,11 @@ for(let i = 0; i < allThumbnails.length; i++){
     const thumbImg = allThumbnails[i];
 
     thumbImg.addEventListener('click', function(){
-        // elimino la classe active attuale 
-    const oldImg = document.querySelector('.slide.active');
-    oldImg.classList.remove('active');
-
-    const oldThumbnails = document.querySelector('.container-thumb-img.active');
-    oldThumbnails.classList.remove('active');
-    
-    // imposto la nuova slide
-    currentSlide = i;
-    
-    // mostro la nuova slide
-    const newImg = allSlides[currentSlide];
-    newImg.classList.add('active');
-
-    // mostro la nuova thumbnails img
-    const newThumbnails = allThumbnails[currentSlide];
-    newThumbnails.classList.add('active');
+        goToSlide(i)
     })
 }
 
-
-
-containerCarousel.addEventListener('mouseout', function(){
-    intervalNext = setInterval(function(){
-        clickNext()
-    }, 3000);
-});
+containerCarousel.addEventListener('mouseout', startCarousel);
 
 containerCarousel.addEventListener('mouseover', function(){
     clearInterval(intervalNext)
